@@ -1,6 +1,7 @@
 module.exports = {
   getUser: getUser,
-  getUsers: getUsers
+  getUsers: getUsers,
+  getUserList: getUserList
 }
 
 function getUsers (knex) {
@@ -8,5 +9,9 @@ function getUsers (knex) {
 }
 
 function getUser (id, knex) {
-  return knex('users').where('id', id)
+  return knex('users').where('id', id).first()
+}
+
+function getUserList (knex) {
+  return knex('users').select('name')
 }
