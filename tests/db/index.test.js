@@ -17,7 +17,7 @@ test('getUsers gets all users', function (t) {
   return db.getUsers(t.context.db)
     .then(function (result) {
       var actual = result.length
-      t.is(expected, actual)
+      t.is(actual, expected)
     })
 })
 
@@ -26,6 +26,15 @@ test('getUsers gets a single user', function (t) {
   return db.getUser(99901, t.context.db)
     .then(function (result) {
       var actual = result[0].name
-      t.is(expected, actual)
+      t.is(actual, expected)
     })
 })
+
+// test('addUser adds a single user to the db', function(t) {
+//   var expected = 'Test'
+//   return db.addUser('Test User', 'testUser@example.com', t.context.db)
+//     .then (function (result) {
+//       var actual = result[0]
+//       t.is(actual, expected)
+//     })
+// })
